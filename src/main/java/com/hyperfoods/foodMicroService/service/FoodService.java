@@ -7,6 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.Optional;
+
 @Service
 public class FoodService {
 
@@ -53,6 +56,11 @@ public class FoodService {
         Food existingFood = repository.findById(id).orElse(null);
         existingFood.setActive(false);
         repository.save(existingFood);
+    }
+
+    public BigDecimal returnPrice(Long foodId){
+        Optional<Food> foodOptional = repository.findById(foodId);
+        return foodOptional.map(Food::getPrice).orElse(null);
     }
 
 }

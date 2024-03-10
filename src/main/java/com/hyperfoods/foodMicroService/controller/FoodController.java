@@ -28,4 +28,9 @@ public class FoodController {
     public ResponseEntity update(@RequestBody @Valid UpdateFoodDTO data) {
         return ResponseEntity.ok(service.update(new Food(data)));
     }
+
+    @GetMapping("/price/{id}")
+    public ResponseEntity getPrice(@PathVariable Long id) {
+        return ResponseEntity.ok(service.returnPrice(id));
+    }
 }
