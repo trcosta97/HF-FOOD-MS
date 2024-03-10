@@ -14,7 +14,9 @@ public record CreateFoodDTO(
         @NotNull
         BigDecimal price,
         @NotBlank
-        FoodType type
+        FoodType type,
+        @NotNull
+        Long restaurantId
 
 
 ) {

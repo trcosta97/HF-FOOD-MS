@@ -43,6 +43,7 @@ public class Food {
         this.price = data.price();
         this.type = data.type();
         this.active = true;
+        this.restaurantId = data.restaurantId();
         this.created = LocalDateTime.now();
     }
 
